@@ -95,11 +95,13 @@ setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
  
 fadeshow.prototype.populateslide=function(picobj, picindex){
 var slideHTML=""
-if (this.theimages[picindex][1]!="") //if associated link exists for image
-slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
-slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
-if (this.theimages[picindex][1]!="") //if associated link exists for image
-slideHTML+='</a>'
+if (this.theimages[picindex][1]) { //if associated link exists for image
+  slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">';
+}
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">';
+if (this.theimages[picindex][1]) { //if associated link exists for image
+  slideHTML+='</a>';
+}
 picobj.innerHTML=slideHTML
 }
 
